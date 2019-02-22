@@ -47,9 +47,42 @@ Jawab :
 #
 <b> No. 3 </b>
 
-Membuat sebuah script bash yang dapat menghasilkan password secara acak sebanyak 12 karakter yang terdapat huruf besar, kecil, dan angka. File berekstensi .txt dengan syarat disimpan dalam bentuk password1.txt, file selanjutnya tidak boleh sama dengan file sebelumnya dan urutan yang sudah terhapus harus terbuat lagi jika dijalankan, dan pastinya password tidak boleh sama.
+Buatlah sebuah script bash yang dapat menghasilkan password secara acak sebanyak 12 karakter yang terdapat huruf besar, huruf kecil, dan angka. Password acak tersebut disimpan pada file berekstensi .txt dengan ketentuan pemberian nama sebagai berikut:
+a.	Jika tidak ditemukan file password1.txt maka password acak tersebut disimpan pada file bernama password1.txt
+b.	Jika file password1.txt sudah ada maka password acak baru akan disimpan pada file bernama password2.txt dan begitu seterusnya.
+c.	Urutan nama file tidak boleh ada yang terlewatkan meski filenya dihapus.
+d.	Password yang dihasilkan tidak boleh sama.
 
 Jawab :
+
+1. Buat file script
+
+        nano soal3.sh
+
+2. Setelah itu isikan soal3.sh dengan script sebagai berikut : [Script Soal 3](/soal3.sh)
+        
+        #!/bin/bash
+
+        g_pass=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 12 | head -n 1)
+        name="password"
+        num=1
+
+        while [ -f "$name$num.txt" ]
+        do
+        num=$((num+1))
+        done
+
+        `touch "$name$num.txt"`
+        fname="$name$num.txt"
+        echo "$num$g_pass" > $fname
+        
+3. Jalankan script tersebut
+
+        bash soal3.sh
+        
+4. Maka akan muncul file password seperti berikut :
+
+![Gambar Soal 3](/Image/3.png)
 
 #
 <b> No. 4 </b>

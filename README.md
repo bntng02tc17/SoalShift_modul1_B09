@@ -13,7 +13,7 @@ Jawab :
 
        nano soal1.sh
 
-3. Setelah itu isikan soal1.sh dengan script sebagai berikut : .[Script Soal 1](/soal1.sh)
+3. Setelah itu isikan soal1.sh dengan script sebagai berikut : [Script Soal 1](/soal1.sh)
 
        #!/bin/bash
 
@@ -70,47 +70,52 @@ Jawab :
 
         Script di atas menggunakan awk dengan file-separator berupa tanda koma(,) mencari setiap baris dengan $7(tahun penjualan) sama dengan 2012 dan $1 sama dengan United States dan $4(product line) sama dengan Outdoor Protection / Camping Equipment atau Personal Accesories,  kemudian menambahkan pada suatu array a dengan indeks berupa $7(product name) dengan $10(penjualan) dari baris tersebut. hasilnya kemudian dipipe ke sort dan dipipe lagi ke tail sehingga hanya memunculkan 3 product dari product line yang terjual terbanyak dari negara dengan penjualan terbanyak yang paling banyak terjual.
    
+#
+<b> No. 3 </b>
 
-No. 3
-
-Buatlah sebuah script bash yang dapat menghasilkan password secara acak sebanyak 12 karakter yang terdapat huruf besar, huruf kecil, dan angka. Password acak tersebut disimpan pada file berekstensi .txt dengan ketentuan pemberian nama sebagai berikut: a. Jika tidak ditemukan file password1.txt maka password acak tersebut disimpan pada file bernama password1.txt b. Jika file password1.txt sudah ada maka password acak baru akan disimpan pada file bernama password2.txt dan begitu seterusnya. c. Urutan nama file tidak boleh ada yang terlewatkan meski filenya dihapus. d. Password yang dihasilkan tidak boleh sama.
+Buatlah sebuah script bash yang dapat menghasilkan password secara acak sebanyak 12 karakter yang terdapat huruf besar, huruf kecil, dan angka. Password acak tersebut disimpan pada file berekstensi .txt dengan ketentuan pemberian nama sebagai berikut: 
+a. Jika tidak ditemukan file password1.txt maka password acak tersebut disimpan pada file bernama password1.txt 
+b. Jika file password1.txt sudah ada maka password acak baru akan disimpan pada file bernama password2.txt dan begitu seterusnya. 
+c. Urutan nama file tidak boleh ada yang terlewatkan meski filenya dihapus. d. Password yang dihasilkan tidak boleh sama.
 
 Jawab :
 
-    Buat file script
+1. Buat file script
 
-     nano soal3.sh
+       nano soal3.sh
 
-    Setelah itu isikan soal3.sh dengan script sebagai berikut : Script Soal 3
+2. Setelah itu isikan soal3.sh dengan script sebagai berikut : [Script Soal 3](/soal3.sh)
 
-     #!/bin/bash
+       #!/bin/bash
 
-     g_pass=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 12 | head -n 1)
-     name="password"
-     num=1
+       g_pass=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 12 | head -n 1)
+       name="password"
+       num=1
 
-     while [ -f "$name$num.txt" ]
-     do
-     num=$((num+1))
-     done
+       while [ -f "$name$num.txt" ]
+       do
+       num=$((num+1))
+       done
 
-     `touch "$name$num.txt"`
-     fname="$name$num.txt"
-     echo "$num$g_pass" > $fname
+       `touch "$name$num.txt"`
+       fname="$name$num.txt"
+       echo "$num$g_pass" > $fname
 
-    Jalankan script tersebut
+3. Jalankan script tersebut
 
-     bash soal3.sh
+       bash soal3.sh
 
-    Maka akan muncul file password seperti berikut :
+Maka akan muncul file password seperti berikut :
 
-Gambar Soal 3
+![Gambar Soal 3](/Image/3.png)
 
-No. 4
+#
+<b> No. 4 </b>
 
 Lakukan backup file syslog setiap jam dengan format nama file “jam:menit tanggal- bulan-tahun”. Isi dari file backup terenkripsi dengan konversi huruf (string manipulation) yang disesuaikan dengan jam dilakukannya backup misalkan sebagai berikut:
-
-a. Huruf b adalah alfabet kedua, sedangkan saat ini waktu menunjukkan pukul 12, sehingga huruf b diganti dengan huruf alfabet yang memiliki urutan ke 12+2 = 14. b. Hasilnya huruf b menjadi huruf n karena huruf n adalah huruf ke empat belas, dan seterusnya. c. setelah huruf z akan kembali ke huruf a d. Backup file syslog setiap jam. e. dan buatkan juga bash script untuk dekripsinya.
+a. Huruf b adalah alfabet kedua, sedangkan saat ini waktu menunjukkan pukul 12, sehingga huruf b diganti dengan huruf alfabet yang memiliki urutan ke 12+2 = 14. 
+b. Hasilnya huruf b menjadi huruf n karena huruf n adalah huruf ke empat belas, dan seterusnya. 
+c. setelah huruf z akan kembali ke huruf a d. Backup file syslog setiap jam. e. dan buatkan juga bash script untuk dekripsinya.
 
 Jawab :
  
@@ -182,7 +187,7 @@ Jawab :
 
        nano soal5.sh
 
-3. Setelah itu isikan soal5.sh dengan script sebagai berikut : Script Soal 5
+3. Setelah itu isikan soal5.sh dengan script sebagai berikut : [Script Soal 5](/soal5.sh)
 
        awk '/cron/ || /CRON/,!/sudo/' /var/log/syslog | awk 'NF <13' >> /home/karinasraya/modul1/syslog5.log
 

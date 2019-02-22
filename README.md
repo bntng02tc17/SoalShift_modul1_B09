@@ -29,6 +29,8 @@ Script tersebut bertujuan untuk mendecode setiap gambar yang tidak bisa dibuka a
         bash soal1.sh
         
 Maka akan muncul gambar-gambar seperti berikut :
+
+[Gambar Soal 1](/1.PNG)
         
 5. Agar file tersebut hanya akan membuka saat pukul 14:14 pada tanggal 14 Februari atau hari tersebut adalah hari jumat pada bulan Februari. Maka tambahkan berikut pada crontab -e
 

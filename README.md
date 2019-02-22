@@ -25,6 +25,7 @@ Jawab :
 
        done
 
+<b> Keterangan : </b>
 Script tersebut bertujuan untuk mendecode setiap gambar yang tidak bisa dibuka pada folder nature agar bisa di bukan kembali dan masuk pada folder pic dalam folder Downloads.
 
 4. Jalankan script tersebut
@@ -214,6 +215,8 @@ Masukkan record tadi ke file log pada direktori
        bash soal5.sh
 
 Maka akan muncul file syslog5 pada folder modul1 seperti berikut :
+
+![Gambar Soal 5](/Image/5.PNG)
 
 5. Agar script berjalan setiap 6 menit dari menit ke 2 hingga 30, tambahkan berikut pada crontab -e
 

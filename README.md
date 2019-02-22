@@ -1,6 +1,6 @@
 # SoalShift_modul1_B09
 
-<b> No. 1 <b>
+<b> No. 1 </b>
 
 Anda diminta tolong oleh teman anda untuk mengembalikan filenya yang telah dienkripsi oleh seseorang menggunakan bash script, file yang dimaksud adalah nature.zip. Karena terlalu mudah kalian memberikan syarat akan membuka seluruh file tersebut jika pukul 14:14 pada tanggal 14 Februari atau hari tersebut adalah hari jumat pada bulan Februari. 
 Hint: Base64, Hexdump
@@ -33,7 +33,7 @@ Script tersebut bertujuan untuk mendecode setiap gambar yang tidak bisa dibuka p
 
 Maka akan muncul gambar-gambar seperti berikut :
 
-!.[Gambar Soal 1](/Image/1.PNG)
+![Gambar Soal 1](/Image/1.PNG)
 
 5. Agar file tersebut hanya akan membuka saat pukul 14:14 pada tanggal 14 Februari atau hari tersebut adalah hari jumat pada bulan Februari. Maka tambahkan berikut pada crontab -e
 
@@ -164,51 +164,54 @@ Jawab :
         
         Line ketiga meminta user untuk memasukkan file yang akan didekrip. line kelima bertujuan untuk mengambil 2 digit awal dari file nama (jam pembuatan file). Line ke 10 untuk menghilangkan digit 0 pada digit pertama variabel rot. kemudian file tadi akan diunzip dan dengan menggunakan command sed dengan rotasi kebalikan dari rot string file dimanipulasi. Hasilmanipulasi disimpan di ~/backup/terderkrip"$filenama".txt 
  
+#
+<b> No. 5 </b>
 
-No. 5
-
-Buatlah sebuah script bash untuk menyimpan record dalam syslog yang memenuhi kriteria berikut: a. Tidak mengandung string “sudo”, tetapi mengandung string “cron”, serta buatlah pencarian stringnya tidak bersifat case sensitive, sehingga huruf kapital atau tidak, tidak menjadi masalah. b. Jumlah field (number of field) pada baris tersebut berjumlah kurang dari 13. c. Masukkan record tadi ke dalam file logs yang berada pada direktori /home/[user]/modul1. d. Jalankan script tadi setiap 6 menit dari menit ke 2 hingga 30, contoh 13:02, 13:08, 13:14, dst.
+Buatlah sebuah script bash untuk menyimpan record dalam syslog yang memenuhi kriteria berikut: 
+a. Tidak mengandung string “sudo”, tetapi mengandung string “cron”, serta buatlah pencarian stringnya tidak bersifat case sensitive, sehingga huruf kapital atau tidak, tidak menjadi masalah. 
+b. Jumlah field (number of field) pada baris tersebut berjumlah kurang dari 13. 
+c. Masukkan record tadi ke dalam file logs yang berada pada direktori /home/[user]/modul1. d. Jalankan script tadi setiap 6 menit dari menit ke 2 hingga 30, contoh 13:02, 13:08, 13:14, dst.
 
 Jawab :
 
-    Buat folder modul1 di home
+1. Buat folder modul1 di home
 
-     mkdir modul1
+       mkdir modul1
 
-    Buat file script
+2. Buat file script
 
-     nano soal5.sh
+       nano soal5.sh
 
-    Setelah itu isikan soal5.sh dengan script sebagai berikut : Script Soal 5
+3. Setelah itu isikan soal5.sh dengan script sebagai berikut : Script Soal 5
 
-     awk '/cron/ || /CRON/,!/sudo/' /var/log/syslog | awk 'NF <13' >> /home/karinasraya/modul1/syslog5.log
+       awk '/cron/ || /CRON/,!/sudo/' /var/log/syslog | awk 'NF <13' >> /home/karinasraya/modul1/syslog5.log
 
-Keterangan :
+<b> Keterangan : </b>
 
 Mengandung string cron
 
-    $0 ~ /cron/
+       $0 ~ /cron/
 
 Tidak mengandung string sudo
 
-    $0 !~ /sudo/ 
+        $0 !~ /sudo/ 
 
 Jumlah number of field kurang dari 13
 
-    'NF <13'
+       'NF <13'
 
 Masukkan record tadi ke file log pada direktori
 
-    /home/karinasraya/modul1/syslog5.log
+       /home/karinasraya/modul1/syslog5.log
 
-    Jalankan script tersebut
+4. Jalankan script tersebut
 
-     bash soal5.sh
+       bash soal5.sh
 
 Maka akan muncul file syslog5 pada folder modul1 seperti berikut :
 
-    Agar script berjalan setiap 6 menit dari menit ke 2 hingga 30, tambahkan berikut pada crontab -e
+5. Agar script berjalan setiap 6 menit dari menit ke 2 hingga 30, tambahkan berikut pada crontab -e
 
-     2-30/6 * * * * /bin/bash /home/karinasraya/soal5.sh
+       2-30/6 * * * * /bin/bash /home/karinasraya/soal5.sh
 
 

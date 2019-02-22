@@ -89,7 +89,7 @@ Jawab :
 
        #!/bin/bash
 
-       g_pass=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 12 | head -n 1)
+       g_pass=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 11 | head -n 1)
        name="password"
        num=1
 
@@ -101,6 +101,9 @@ Jawab :
        `touch "$name$num.txt"`
        fname="$name$num.txt"
        echo "$num$g_pass" > $fname
+       
+       line 3 bertujuan untuk mengenerate string random dengan panjang 11
+       lalu dilakukan pengechekan apakah file password$num ada atau tidak, jika ada maka num++. loop dilakkan hingga file tidak ditemukan. setelah itu membuat file dengan nama $name$num.txt dan isinya berupa $num$pass
 
 3. Jalankan script tersebut
 
@@ -143,6 +146,9 @@ Jawab :
         #echo $na
       
         Line 3 - 4 berguna untuk mendeklarasikan variabel dengan isi berupa tanggal dan ajm sekarang. line berikutnya berguna untuk menentukan rotasi huruf sesuai dengan jam dibuatnya file. 2 line berikutnya berguna untuk mendefinisikan huruf kecil dan besar. lalu 3 line berikutnya untuk membuat rotasi dalam variabel dengan tipedata integer 1 digit untuk 01-09. berikutnya mendeklarasikan variabel na sebagai variabel nama untuk file yang akan dibuat. kemudian dengan command sed, file syslog dimanipulasi stringnya dengan dirotasi setiap karakter hurufnya sebesar rot. hasilnya kemudian dicetakdi $na.txt. kemudian file tersebut dizip dan file sebelum dizip dihapus
+        
+        Agar berjalan setiap jam, tekan crontab -e lalu masukkan 
+        0 * * * * /bin/bash /path/to/enkri.sh
         
          
  Untuk mendekripsi manual 

@@ -70,6 +70,8 @@ Jawab :
         awk -F ',' '{ if ($7=="2012" && $1=="United States" && ($4=="Outdoor Protection" || $4=="Camping Equipment" ||  $4=="Personal Accessories")) a[$6]+=$10} END {for(x in a)print a[x] " " x}' WA_Sales_Products_2012-14.csv | sort -n | tail -3
 
         Script di atas menggunakan awk dengan file-separator berupa tanda koma(,) mencari setiap baris dengan $7(tahun penjualan) sama dengan 2012 dan $1 sama dengan United States dan $4(product line) sama dengan Outdoor Protection / Camping Equipment atau Personal Accesories,  kemudian menambahkan pada suatu array a dengan indeks berupa $7(product name) dengan $10(penjualan) dari baris tersebut. hasilnya kemudian dipipe ke sort dan dipipe lagi ke tail sehingga hanya memunculkan 3 product dari product line yang terjual terbanyak dari negara dengan penjualan terbanyak yang paling banyak terjual.
+        
+        ![Gambar Soal 2](/Image/2.PNG)
    
 #
 <b> No. 3 </b>
@@ -176,6 +178,8 @@ Jawab :
         #`sudo rm coba2d.txt`
         
         Line ketiga meminta user untuk memasukkan file yang akan didekrip. line kelima bertujuan untuk mengambil 2 digit awal dari file nama (jam pembuatan file). Line ke 10 untuk menghilangkan digit 0 pada digit pertama variabel rot. kemudian file tadi akan diunzip dan dengan menggunakan command sed dengan rotasi kebalikan dari rot string file dimanipulasi. Hasilmanipulasi disimpan di ~/backup/terderkrip"$filenama".txt 
+        
+        ![Gambar Soal 4](/Image/soal4enkri.PNG)
  
 #
 <b> No. 5 </b>

@@ -10,4 +10,4 @@ Jawab :
 
         nano soal1.sh
 
-3. setelah itu isikan soal1.sh dengan script sebagai berikut : ![Script Soal 1](/soal1.sh)
+3. setelah itu isikan soal1.sh dengan script sebagai berikut : [Script Soal 1](/soal1.sh)

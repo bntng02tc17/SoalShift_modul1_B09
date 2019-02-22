@@ -23,7 +23,7 @@ Jawab :
 
         done
         
-Script tersebut bertujuan untuk mendecode setiap gambar yang tidak bisa dibuka agar bisa di bukan kembali.
+Script tersebut bertujuan untuk mendecode setiap gambar yang tidak bisa dibuka pada folder nature agar bisa di bukan kembali dan masuk pada folder pic dalam folder Downloads.
 
 4. Jalankan script tersebut
 
@@ -41,7 +41,10 @@ Maka akan muncul gambar-gambar seperti berikut :
 #
 <b> No. 2 </b>
 
-Anda merupakan pegawai magang pada sebuah perusahaan retail, dan anda diminta untuk memberikan laporan berdasarkan file WA_Sales_Products_2012-14.csv. Laporan yang diminta berupa: *Tentukan negara dengan penjualan(quantity) terbanyak pada tahun 2012. *Tentukan tiga product line yang memberikan penjualan(quantity) terbanyak pada soal poin a. *Tentukan tiga product yang memberikan penjualan(quantity) terbanyak berdasarkan tiga product line yang didapatkan pada soal poin b.
+Anda merupakan pegawai magang pada sebuah perusahaan retail, dan anda diminta untuk memberikan laporan berdasarkan file WA_Sales_Products_2012-14.csv. Laporan yang diminta berupa:
+a. Tentukan negara dengan penjualan(quantity) terbanyak pada tahun 2012.
+b. Tentukan tiga product line yang memberikan penjualan(quantity) terbanyak pada soal poin a.
+c. Tentukan tiga product yang memberikan penjualan(quantity) terbanyak berdasarkan tiga product line yang didapatkan pada soal poin b.
 
 Jawab :
 
@@ -118,6 +121,24 @@ Jawab :
 3. Setelah itu isikan soal5.sh dengan script sebagai berikut : [Script Soal 5](/soal5.sh)
 
         awk '/cron/ || /CRON/,!/sudo/' /var/log/syslog | awk 'NF <13' >> /home/karinasraya/modul1/syslog5.log
+        
+<b> Keterangan : </b>
+
+Mengandung string cron
+
+        $0 ~ /cron/
+        
+Tidak mengandung string sudo
+
+        $0 !~ /sudo/ 
+        
+Jumlah number of field kurang dari 13
+
+        'NF <13'
+
+Masukkan record tadi ke file log pada direktori
+
+        /home/karinasraya/modul1/syslog5.log
         
 4. Jalankan script tersebut
 

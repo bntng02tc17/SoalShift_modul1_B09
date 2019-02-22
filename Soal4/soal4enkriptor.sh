@@ -1,6 +1,6 @@
 #!/bin/bash
 
-datenow=`date +%Y-%m-%d`
+datenow=`date +%d-%m-%Y`
 timenow=`date +%H:%M`
 rot=`date +"%H"`
 a=abcdefghijklmnopqrstuvwxyz

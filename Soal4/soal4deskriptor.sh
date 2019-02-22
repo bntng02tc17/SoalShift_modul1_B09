@@ -5,7 +5,7 @@ read filenama
 rot=${filenama:0:2}
 
 
-datenow=`date +%Y-%m-%d`
+datenow=`date +%d-%m-%Y`
 timenow=`date +%H:%M`
 
 a=abcdefghijklmnopqrstuvwxyz

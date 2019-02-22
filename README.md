@@ -138,6 +138,7 @@ Jawab :
         `sudo </var/log/syslog sed "y/$a$b/${a:$r}${a::$r}${b:$r}${b::$r}/">~/"$na.txt"`
         `sudo zip -j ~/backup/"$na.zip" ~/"$na.txt"`
         `sudo rm ~/"$na.txt"`
+        
 
         #echo $na
       

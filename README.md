@@ -1,45 +1,47 @@
 # SoalShift_modul1_B09
 
- No. 1
+<b> No. 1 <b>
 
-Anda diminta tolong oleh teman anda untuk mengembalikan filenya yang telah dienkripsi oleh seseorang menggunakan bash script, file yang dimaksud adalah nature.zip. Karena terlalu mudah kalian memberikan syarat akan membuka seluruh file tersebut jika pukul 14:14 pada tanggal 14 Februari atau hari tersebut adalah hari jumat pada bulan Februari. Hint: Base64, Hexdump
+Anda diminta tolong oleh teman anda untuk mengembalikan filenya yang telah dienkripsi oleh seseorang menggunakan bash script, file yang dimaksud adalah nature.zip. Karena terlalu mudah kalian memberikan syarat akan membuka seluruh file tersebut jika pukul 14:14 pada tanggal 14 Februari atau hari tersebut adalah hari jumat pada bulan Februari. 
+Hint: Base64, Hexdump
 
 Jawab :
 
-    Download nature.zip kemudian di ekstrak
+1. Download nature.zip kemudian di ekstrak
 
-    Buat file script
+2. Buat file script
 
-     nano soal1.sh
+       nano soal1.sh
 
-    Setelah itu isikan soal1.sh dengan script sebagai berikut : Script Soal 1
+3. Setelah itu isikan soal1.sh dengan script sebagai berikut : .[Script Soal 1](/soal1.sh)
 
-     #!/bin/bash
+       #!/bin/bash
 
-     iter=0
-     for pic in /home/karinasraya/Downloads/nature/*.jpg
-     do
-     base64 -d $pic | xxd -r > /home/karinasraya/Downloads/pic/$iter.jpg
-     iter=$((iter+1))
+       iter=0
+       for pic in /home/karinasraya/Downloads/nature/*.jpg
+       do
+       base64 -d $pic | xxd -r > /home/karinasraya/Downloads/pic/$iter.jpg
+       iter=$((iter+1))
 
-     done
+       done
 
 Script tersebut bertujuan untuk mendecode setiap gambar yang tidak bisa dibuka pada folder nature agar bisa di bukan kembali dan masuk pada folder pic dalam folder Downloads.
 
-    Jalankan script tersebut
+4. Jalankan script tersebut
 
-     bash soal1.sh
+       bash soal1.sh
 
 Maka akan muncul gambar-gambar seperti berikut :
 
-Gambar Soal 1
+!.[Gambar Soal 1](/Image/1.PNG)
 
-    Agar file tersebut hanya akan membuka saat pukul 14:14 pada tanggal 14 Februari atau hari tersebut adalah hari jumat pada bulan Februari. Maka tambahkan berikut pada crontab -e
+5. Agar file tersebut hanya akan membuka saat pukul 14:14 pada tanggal 14 Februari atau hari tersebut adalah hari jumat pada bulan Februari. Maka tambahkan berikut pada crontab -e
 
-     14 14 14 2 * /bin/bash /home/karinasraya/soal1.sh
-     14 14 * 2 5 /bin/bash /home/karinasraya/soal1.sh
+       14 14 14 2 * /bin/bash /home/karinasraya/soal1.sh
+       14 14 * 2 5 /bin/bash /home/karinasraya/soal1.sh
 
-No. 2
+#
+<b> No. 2 </b>
 
 Anda merupakan pegawai magang pada sebuah perusahaan retail, dan anda diminta untuk memberikan laporan berdasarkan file WA_Sales_Products_2012-14.csv. Laporan yang diminta berupa: a. Tentukan negara dengan penjualan(quantity) terbanyak pada tahun 2012. b. Tentukan tiga product line yang memberikan penjualan(quantity) terbanyak pada soal poin a. c. Tentukan tiga product yang memberikan penjualan(quantity) terbanyak berdasarkan tiga product line yang didapatkan pada soal poin b.
 
